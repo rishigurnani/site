@@ -1,0 +1,69 @@
+/* css/style.css */
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  scroll-behavior: smooth;
+}
+
+/* Navbar transition */
+.navbar {
+  transition: background-color 0.3s;
+}
+.navbar.scrolled {
+  background-color: rgba(0, 0, 0, 0.85) !important;
+}
+
+/* Hero Section */
+.hero-section {
+  height: 100vh;
+  background: url('https://source.unsplash.com/1600x900/?technology,abstract') center center/cover no-repeat;
+  position: relative;
+  color: #fff;
+}
+.hero-section::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.5);
+}
+.hero-section .container {
+  position: relative;
+  z-index: 2;
+}
+
+/* Section spacing */
+section {
+  padding: 60px 0;
+}
+h2 {
+  margin-bottom: 20px;
+  font-weight: 700;
+}
+
+/* Card hover effect */
+.card {
+  border: none;
+  border-radius: 10px;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+}
+
+/* Footer styling */
+footer {
+  background-color: #222;
+}
+footer p {
+  margin: 0;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .hero-section h1 {
+    font-size: 2.5rem;
+  }
+}
+
