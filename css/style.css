@@ -67,3 +67,22 @@ footer p {
   }
 }
 
+/* New styling for the citation metrics container */
+.citation-metrics-container {
+  background-color: #f7f9fc; /* a light, neutral background */
+  border: 1px solid #d0d7e5; /* subtle border */
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Optional: Add a bottom margin to the heading inside the container */
+.citation-metrics-container h4 {
+  margin-bottom: 15px;
+  color: #333;
+}
+
+/* Optional: Increase spacing below the citation metrics container */
+.publication-list {
+  margin-top: 30px;
+}

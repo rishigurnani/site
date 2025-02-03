@@ -22,6 +22,8 @@
   />
   <!-- Custom CSS -->
   <link rel="stylesheet" href="css/style.css" />
+  <!-- Chart.js Library for the graph -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
   <!-- Navigation -->
@@ -248,19 +250,31 @@
     <section id="publications" class="py-5">
       <div class="container" data-aos="fade-up">
         <h2 class="mb-4">Publications</h2>
-        <ol>
-          <li>
-            <em>Design of functional and sustainable polymers assisted by artificial intelligence</em> (2024).
-            [<a href="https://rishigurnani.wordpress.com/wp-content/uploads/2024/08/tran_et_al-2024-nature_reviews_materials.pdf" target="_blank">Full Text</a>]
-          </li>
-          <li>
-            <em>Gas permeability, diffusivity, and solubility in polymers: Simulation-experiment data fusion and multi-task machine learning</em> (2024).
-            [<a href="https://rishigurnani.wordpress.com/wp-content/uploads/2024/08/phan_et_al-2024-npj_computational_materials.pdf" target="_blank">Full Text</a>]
-          </li>
-          <!-- Add additional publications as desired -->
-        </ol>
+        
+        <!-- Grouped Citation Metrics & Graph -->
+        <div class="citation-metrics-container p-4 mb-4 border rounded">
+          <h4 class="mb-3">Citation Metrics</h4>
+          <p id="scholar-metrics">Loading citation data...</p>
+          <canvas id="citationsChart" style="max-width: 100%; height: 300px;"></canvas>
+        </div>
+        
+        <!-- Publication List -->
+        <div class="publication-list">
+          <ol class="mt-4">
+            <li>
+              <em>Design of functional and sustainable polymers assisted by artificial intelligence</em> (2024).
+              [<a href="https://rishigurnani.wordpress.com/wp-content/uploads/2024/08/tran_et_al-2024-nature_reviews_materials.pdf" target="_blank">Full Text</a>]
+            </li>
+            <li>
+              <em>Gas permeability, diffusivity, and solubility in polymers: Simulation-experiment data fusion and multi-task machine learning</em> (2024).
+              [<a href="https://rishigurnani.wordpress.com/wp-content/uploads/2024/08/phan_et_al-2024-npj_computational_materials.pdf" target="_blank">Full Text</a>]
+            </li>
+            <!-- Add additional publications as desired -->
+          </ol>
+        </div>
       </div>
     </section>
+
 
     <!-- Contact Section -->
     <section id="contact" class="py-5 bg-light">
@@ -310,6 +324,75 @@
   <script src="js/manim-animation.js"></script>
   <!-- Custom JS -->
   <script src="js/script.js"></script>
+  <!-- Scholar Metrics and Chart Rendering -->
+  <script>
+    // Function to compute h-index from a list of publications.
+    function computeHIndex(publications) {
+      // Get array of citation counts
+      let citations = publications.map(pub => pub.citations);
+      // Sort in descending order
+      citations.sort((a, b) => b - a);
+      let h = 0;
+      for (let i = 0; i < citations.length; i++) {
+        if (citations[i] >= i + 1) {
+          h = i + 1;
+        } else {
+          break;
+        }
+      }
+      return h;
+    }
+
+    // Function to render citations per year using Chart.js.
+    function renderCitationsChart(citationsPerYear) {
+      const ctx = document.getElementById('citationsChart').getContext('2d');
+      const labels = Object.keys(citationsPerYear);
+      const data = Object.values(citationsPerYear);
+      
+      new Chart(ctx, {
+        type: 'line',
+        data: {
+          labels: labels,
+          datasets: [{
+            label: 'Citations per Year',
+            data: data,
+            backgroundColor: 'rgba(100, 200, 255, 0.2)',
+            borderColor: 'rgba(100, 200, 255, 1)',
+            borderWidth: 2,
+            tension: 0.4,
+            fill: true
+          }]
+        },
+        options: {
+          scales: {
+            y: {
+              beginAtZero: true,
+              ticks: {
+                stepSize: 20
+              }
+            }
+          }
+        }
+      });
+    }
+
+    // Fetch the local JSON file and update metrics and chart.
+    fetch('google_scholar.json')
+      .then(response => response.json())
+      .then(data => {
+        const totalCitations = data.total_citations;
+        const hIndex = computeHIndex(data.publications);
+        document.getElementById('scholar-metrics').innerText =
+          `Total Citations: ${totalCitations} | h-index: ${hIndex}`;
+
+        // Render graph using citations_per_year data.
+        renderCitationsChart(data.citations_per_year);
+      })
+      .catch(error => {
+        console.error('Error loading scholar data:', error);
+        document.getElementById('scholar-metrics').innerText =
+          'Citation data unavailable';
+      });
+  </script>
 </body>
 </html>
-
