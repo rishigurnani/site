@@ -1,398 +1,125 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Rishi Gurnani's Website</title>
-  
-  <!-- Bootstrap CSS -->
-  <link
-    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
-    rel="stylesheet"
-  />
-  <!-- Google Fonts -->
-  <link
-    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap"
-    rel="stylesheet"
-  />
-  <!-- AOS CSS for scroll animations -->
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"
-  />
-  <!-- Custom CSS -->
-  <link rel="stylesheet" href="css/style.css" />
-  <!-- Chart.js Library for the graph -->
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-</head>
-<body>
-  <!-- Navigation -->
-  <nav class="navbar navbar-expand-lg navbar-dark bg-transparent fixed-top">
-    <div class="container">
-      <a class="navbar-brand" href="#home">Rishi Gurnani</a>
-      <button
-        class="navbar-toggler"
-        type="button"
-        data-bs-toggle="collapse"
-        data-bs-target="#navbarNav"
-        aria-controls="navbarNav"
-        aria-expanded="false"
-        aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-        <ul class="navbar-nav">
-          <!-- Primary Tabs -->
-          <li class="nav-item">
-            <a class="nav-link" href="#home">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link fw-bold" href="#about">About</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link fw-bold" href="#publications">Publications</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#contact">Contact</a>
-          </li>
-          <!-- More Dropdown for Subtabs -->
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="moreDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              More
-            </a>
-            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="moreDropdown">
-              <li><a class="dropdown-item" href="#web-apps">Web Apps</a></li>
-              <li><a class="dropdown-item" href="#business-ventures">Business Ventures</a></li>
-              <li><a class="dropdown-item" href="#dissertation">Dissertation</a></li>
-              <li><a class="dropdown-item" href="#learning">Learning</a></li>
-              <li><a class="dropdown-item" href="#news">News</a></li>
-              <li><a class="dropdown-item" href="#open-source">Open Source</a></li>
-            </ul>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </nav>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Rishi Gurnani's Website</title>
 
-  <!-- Hero Section with p5.js Animation Background -->
-  <header id="home" class="hero-section position-relative d-flex align-items-center">
-    <!-- Canvas container for p5.js background animation -->
-    <div id="hero-canvas-container" class="position-absolute top-0 start-0 w-100 h-100"></div>
-    <!-- Content overlay -->
-    <div class="container text-center position-relative" data-aos="fade-up">
-      <h1 class="display-4 fw-bold">Rishi Gurnani</h1>
-      <p class="lead">
-        Innovating at the intersection of Machine Learning &amp; Materials Science
-      </p>
-      <a href="#about" class="btn btn-lg btn-primary mt-4">Learn More</a>
-    </div>
-  </header>
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link rel="icon" href="favicon.ico" type="image/x-icon" />
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- AOS CSS for scroll animations -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"
+    />
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css" />
+    <!-- Chart.js Library for the graph -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  </head>
+  <body>
+    <!-- These placeholders will be filled with our partials -->
+    <div id="navbar-placeholder"></div>
+    <div id="hero-placeholder"></div>
+    <div id="main-content-placeholder"></div>
+    <div id="footer-placeholder"></div>
 
-  <!-- Main Content -->
-  <main>
-    <!-- About Section -->
-    <section id="about" class="py-5 bg-light">
-      <div class="container" data-aos="fade-up">
-        <div class="row align-items-center">
-          <div class="col-md-6">
-            <img
-              src="https://rishigurnani.wordpress.com/wp-content/uploads/2020/08/group-1.jpeg"
-              alt="About"
-              class="img-fluid rounded"
-            />
-          </div>
-          <div class="col-md-6">
-            <h2>About Me</h2>
-            <p>
-              This site is a curated collection of links and projects on Machine Learning and Density Functional Theory. I currently serve as the Director of Software Engineering &amp; Algorithms at
-              <a href="https://www.matmerize.com/" target="_blank">Matmerize</a>
-              and engage in innovative materials informatics research.
-            </p>
-            <p>
-              My work focuses on harnessing deep learning and computational methods to discover novel materials for energy storage and beyond.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
+    <!-- Scripts -->
+    <!-- Bootstrap JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- AOS JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+      AOS.init({
+        duration: 1000,
+        once: true
+      });
+    </script>
+    <!-- p5.js Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.6.0/p5.min.js"></script>
+    <!-- Custom Animation -->
+    <script src="js/manim-animation.js"></script>
+    <!-- Custom Script -->
+    <script src="js/script.js"></script>
+    <!-- Partial Loader -->
+    <script src="js/load-partials.js"></script>
 
-    <!-- Web Applications Section -->
-    <section id="web-apps" class="py-5">
-      <div class="container" data-aos="fade-up">
-        <h2 class="mb-4">Web Applications</h2>
-        <div class="row">
-          <div class="col-md-6 mb-4">
-            <div class="card shadow-sm">
-              <div class="card-body">
-                <h3 class="card-title">NetDebugger Tutorial</h3>
-                <p class="card-text">
-                  A tool to debug neural networks when training goes awry. Find it on
-                  <a href="https://github.com/rishigurnani/nndebugger" target="_blank">GitHub</a>
-                  or try it online at
-                  <a href="https://nanohub.org/tools/netdebugger" target="_blank">nanoHUB</a>.
-                </p>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6 mb-4">
-            <div class="card shadow-sm">
-              <div class="card-body">
-                <h3 class="card-title">Fractional Free Volume Predictor</h3>
-                <p class="card-text">
-                  A machine learning model that rapidly predicts fractional free volume in polymers. Access it at
-                  <a href="https://www.polymergenome.org/" target="_blank">polymergenome.org</a>.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Business Ventures Section -->
-    <section id="business-ventures" class="py-5 bg-light">
-      <div class="container" data-aos="fade-up">
-        <h2 class="mb-4">Business Ventures</h2>
-        <p>
-          I am the Director of Software Engineering &amp; Algorithms at
-          <a href="https://www.matmerize.com/" target="_blank">Matmerize</a>.
-          Our mission is to transform materials development by eliminating trial-and-error processes.
-        </p>
-        <p>
-          Additionally, I recently appeared on the
-          <a href="https://www.itsamaterialworldpodcast.com/" target="_blank">It’s a Material World Podcast</a>
-          to share insights from my academic and professional journey.
-        </p>
-      </div>
-    </section>
-
-    <!-- Dissertation Section -->
-    <section id="dissertation" class="py-5">
-      <div class="container" data-aos="fade-up">
-        <h2 class="mb-4">Dissertation</h2>
-        <p>
-          My PhD dissertation, “Advances in Artificial Intelligence for Accelerated Discovery of Energy Storage Polymers,” is available below:
-        </p>
-        <div class="ratio ratio-16x9">
-          <!-- Replace VIDEO_ID with your YouTube video ID -->
-          <iframe src="https://www.youtube.com/embed/VIDEO_ID" title="Dissertation Video" allowfullscreen></iframe>
-        </div>
-      </div>
-    </section>
-
-    <!-- Learning Section -->
-    <section id="learning" class="py-5 bg-light">
-      <div class="container" data-aos="fade-up">
-        <h2 class="mb-4">Learning</h2>
-        <p>
-          Discover my brief takes on Density Functional Theory and Machine Learning—along with curated lectures and tutorials—to empower emerging researchers.
-        </p>
-      </div>
-    </section>
-
-    <!-- News Section -->
-    <section id="news" class="py-5">
-      <div class="container" data-aos="fade-up">
-        <h2 class="mb-4">News</h2>
-        <h4>2024</h4>
-        <ul>
-          <li>Earned the Georgia Tech <strong>Best Ph.D. Thesis</strong> Award from Sigma Xi.</li>
-        </ul>
-        <h4>2023</h4>
-        <ul>
-          <li>
-            Awarded the <strong>Graduate Student Silver Award</strong> from the Materials Research Society.
-            <a href="https://www.mse.gatech.edu/news/materials-research-society-mrs-honors-mse-graduate-students-2023-graduate-student-award" target="_blank">See story</a>.
-          </li>
-          <li>Started my full-time position at <a href="https://www.matmerize.com/" target="_blank">Matmerize</a>.</li>
-          <li>Successfully defended my PhD dissertation.</li>
-        </ul>
-        <h4>2022</h4>
-        <ul>
-          <li>Won the Gold Medal for best presentation at the 2nd International Forum in Energy &amp; Informatics.</li>
-          <li>Won the Best Talk at the 8th Annual Georgia Tech Student Polymer Network Symposium.</li>
-        </ul>
-      </div>
-    </section>
-
-    <!-- Open Source Section -->
-    <section id="open-source" class="py-5 bg-light">
-      <div class="container" data-aos="fade-up">
-        <h2 class="mb-4">Open Source</h2>
-        <div class="row">
-          <div class="col-md-6 mb-4">
-            <div class="card shadow-sm">
-              <div class="card-body">
-                <h3 class="card-title">Polymer Graph Neural Net (polyGNN)</h3>
-                <p class="card-text">
-                  Explore my GitHub project on graph neural networks for polymer property prediction.
-                  <a href="https://github.com/Ramprasad-Group/polygnn" target="_blank">Visit Repository</a>
-                </p>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6 mb-4">
-            <div class="card shadow-sm">
-              <div class="card-body">
-                <h3 class="card-title">Solvent polyGNN</h3>
-                <p class="card-text">
-                  An extension of polyGNN for predicting polymer solubility.
-                  <a href="https://github.com/Ramprasad-Group/sol_polygnn" target="_blank">Visit Repository</a>
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Publications Section -->
-    <section id="publications" class="py-5">
-      <div class="container" data-aos="fade-up">
-        <h2 class="mb-4">Publications</h2>
-        
-        <!-- Grouped Citation Metrics & Graph -->
-        <div class="citation-metrics-container p-4 mb-4 border rounded">
-          <h4 class="mb-3">Citation Metrics</h4>
-          <p id="scholar-metrics">Loading citation data...</p>
-          <canvas id="citationsChart" style="max-width: 100%; height: 300px;"></canvas>
-        </div>
-        
-        <!-- Publication List -->
-        <div class="publication-list">
-          <ol class="mt-4">
-            <li>
-              <em>Design of functional and sustainable polymers assisted by artificial intelligence</em> (2024).
-              [<a href="https://rishigurnani.wordpress.com/wp-content/uploads/2024/08/tran_et_al-2024-nature_reviews_materials.pdf" target="_blank">Full Text</a>]
-            </li>
-            <li>
-              <em>Gas permeability, diffusivity, and solubility in polymers: Simulation-experiment data fusion and multi-task machine learning</em> (2024).
-              [<a href="https://rishigurnani.wordpress.com/wp-content/uploads/2024/08/phan_et_al-2024-npj_computational_materials.pdf" target="_blank">Full Text</a>]
-            </li>
-            <!-- Add additional publications as desired -->
-          </ol>
-        </div>
-      </div>
-    </section>
-
-
-    <!-- Contact Section -->
-    <section id="contact" class="py-5 bg-light">
-      <div class="container" data-aos="fade-up">
-        <h2 class="mb-4">Contact</h2>
-        <p>Get in touch with me:</p>
-        <ul class="list-unstyled">
-          <li><strong>Email:</strong> rgurnani96 [at] gatech.edu</li>
-          <li>
-            <strong>GitHub:</strong>
-            <a href="https://github.com/rishigurnani" target="_blank">github.com/rishigurnani</a>
-          </li>
-          <li>
-            <strong>LinkedIn:</strong>
-            <a href="https://www.linkedin.com/in/rishi-gurnani/" target="_blank">linkedin.com/in/rishi-gurnani/</a>
-          </li>
-          <li>
-            <strong>ORCiD:</strong>
-            <a href="https://orcid.org/0000-0002-2744-2234" target="_blank">0000-0002-2744-2234</a>
-          </li>
-        </ul>
-      </div>
-    </section>
-  </main>
-
-  <!-- Footer -->
-  <footer class="text-center py-4 bg-dark text-white">
-    <div class="container">
-      <p>&copy; 2025 Rishi Gurnani. All rights reserved.</p>
-    </div>
-  </footer>
-
-  <!-- Scripts -->
-  <!-- Bootstrap JS Bundle -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-  <!-- AOS JS -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
-  <script>
-    AOS.init({
-      duration: 1000,
-      once: true
-    });
-  </script>
-  <!-- p5.js Library -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.6.0/p5.min.js"></script>
-  <!-- Custom Manim-like Animation (attached to hero background) -->
-  <script src="js/manim-animation.js"></script>
-  <!-- Custom JS -->
-  <script src="js/script.js"></script>
-  <!-- Scholar Metrics and Chart Rendering -->
-  <script>
-    // Function to compute h-index from a list of publications.
-    function computeHIndex(publications) {
-      // Get array of citation counts
-      let citations = publications.map(pub => pub.citations);
-      // Sort in descending order
-      citations.sort((a, b) => b - a);
-      let h = 0;
-      for (let i = 0; i < citations.length; i++) {
-        if (citations[i] >= i + 1) {
-          h = i + 1;
-        } else {
-          break;
-        }
-      }
-      return h;
-    }
-
-    // Function to render citations per year using Chart.js.
-    function renderCitationsChart(citationsPerYear) {
-      const ctx = document.getElementById('citationsChart').getContext('2d');
-      const labels = Object.keys(citationsPerYear);
-      const data = Object.values(citationsPerYear);
-      
-      new Chart(ctx, {
-        type: 'line',
-        data: {
-          labels: labels,
-          datasets: [{
-            label: 'Citations per Year',
-            data: data,
-            backgroundColor: 'rgba(100, 200, 255, 0.2)',
-            borderColor: 'rgba(100, 200, 255, 1)',
-            borderWidth: 2,
-            tension: 0.4,
-            fill: true
-          }]
-        },
-        options: {
-          scales: {
-            y: {
-              beginAtZero: true,
-              ticks: {
-                stepSize: 20
-              }
+    <!-- Initialize Citation Chart (this function is called after partials load) -->
+    <script>
+      function initCharts() {
+        // (Insert the citation chart code from above here.)
+        function computeHIndex(publications) {
+          let citations = publications.map(pub => pub.citations);
+          citations.sort((a, b) => b - a);
+          let h = 0;
+          for (let i = 0; i < citations.length; i++) {
+            if (citations[i] >= i + 1) {
+              h = i + 1;
+            } else {
+              break;
             }
           }
+          return h;
         }
-      });
-    }
 
-    // Fetch the local JSON file and update metrics and chart.
-    fetch('google_scholar.json')
-      .then(response => response.json())
-      .then(data => {
-        const totalCitations = data.total_citations;
-        const hIndex = computeHIndex(data.publications);
-        document.getElementById('scholar-metrics').innerText =
-          `Total Citations: ${totalCitations} | h-index: ${hIndex}`;
+        function renderCitationsChart(citationsPerYear) {
+          const ctx = document.getElementById('citationsChart').getContext('2d');
+          const labels = Object.keys(citationsPerYear);
+          const data = Object.values(citationsPerYear);
+          
+          new Chart(ctx, {
+            type: 'line',
+            data: {
+              labels: labels,
+              datasets: [{
+                label: 'Citations per Year',
+                data: data,
+                backgroundColor: 'rgba(100, 200, 255, 0.2)',
+                borderColor: 'rgba(100, 200, 255, 1)',
+                borderWidth: 2,
+                tension: 0.4,
+                fill: true
+              }]
+            },
+            options: {
+              scales: {
+                y: {
+                  beginAtZero: true,
+                  ticks: {
+                    stepSize: 20
+                  }
+                }
+              }
+            }
+          });
+        }
 
-        // Render graph using citations_per_year data.
-        renderCitationsChart(data.citations_per_year);
-      })
-      .catch(error => {
-        console.error('Error loading scholar data:', error);
-        document.getElementById('scholar-metrics').innerText =
-          'Citation data unavailable';
-      });
-  </script>
-</body>
+        fetch('google_scholar.json')
+          .then(response => response.json())
+          .then(data => {
+            const totalCitations = data.total_citations;
+            const hIndex = computeHIndex(data.publications);
+            document.getElementById('scholar-metrics').innerText =
+              `Total Citations: ${totalCitations} | h-index: ${hIndex}`;
+    
+            renderCitationsChart(data.citations_per_year);
+          })
+          .catch(error => {
+            console.error('Error loading scholar data:', error);
+            document.getElementById('scholar-metrics').innerText =
+              'Citation data unavailable';
+          });
+      }
+    </script>
+  </body>
 </html>
+
