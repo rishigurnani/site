@@ -86,3 +86,34 @@ footer p {
 .publication-list {
   margin-top: 30px;
 }
+
+/* New Publication List Styling */
+.publication-list ol {
+  list-style: decimal inside;
+  padding-left: 0;
+}
+.pub-item {
+  padding: 12px 0;
+  border-bottom: 1px solid #e0e0e0;
+}
+.pub-item:last-child {
+  border-bottom: none;
+}
+.pub-title {
+  font-size: 1.1rem;
+  color: #3f51b5;
+}
+.pub-details {
+  font-size: 0.9rem;
+  color: #555;
+}
+.pub-citations {
+  color: #ff4081;
+  font-weight: 700;
+}
+.pub-year {
+  color: #333;
+}
+.pub-authors, .pub-venue {
+  color: #777;
+}

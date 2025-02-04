@@ -58,7 +58,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.3/html2pdf.bundle.min.js"></script>
     <!-- Resume Conversion Script -->
     <script src="js/convert-resume.js"></script>
-    <!-- Initialize Citation Chart (this function is called after partials load) -->
+    <!-- Initialize Citation Chart and Generate Publication List -->
     <script>
       function initCharts() {
         function computeHIndex(publications) {
@@ -116,6 +116,26 @@
               `Total Citations: ${totalCitations} | h-index: ${hIndex}`;
     
             renderCitationsChart(data.citations_per_year);
+            
+            // Dynamically generate the publication list.
+            const pubList = document.getElementById('publication-list');
+            pubList.innerHTML = ''; // Clear any existing content
+            data.publications.forEach(pub => {
+              const li = document.createElement('li');
+              li.innerHTML = `
+                <div class="pub-item">
+                  <div class="pub-title"><em>${pub.title}</em></div>
+                  <div class="pub-details">
+                    <span class="pub-year">(${pub.year})</span> – 
+                    <span class="pub-citations">${pub.citations} citations</span>
+                    <br/>
+                    <small class="pub-authors">${pub.authors}</small>
+                    ${pub.venue ? `<br/><small class="pub-venue">${pub.venue}</small>` : ''}
+                  </div>
+                </div>
+              `;
+              pubList.appendChild(li);
+            });
           })
           .catch(error => {
             console.error('Error loading scholar data:', error);
