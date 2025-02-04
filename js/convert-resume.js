@@ -25,16 +25,32 @@ function convertResume() {
         html2canvas: { scale: 2 },
         jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
       };
-      // Convert the container's HTML to PDF and output as a Blob URL.
-      html2pdf().set(opt).from(container).outputPdf('bloburl')
-        .then(url => {
-          // Open the generated PDF in a new browser tab.
-          window.open(url, '_blank');
-        })
-        .catch(err => {
-          console.error('Error generating PDF:', err);
-          alert('Error generating resume PDF.');
-        });
+
+      // Generate the PDF as a Blob.
+      html2pdf().set(opt).from(container).outputPdf('blob').then(pdfBlob => {
+        // Create a blob URL from the PDF Blob.
+        const blobUrl = URL.createObjectURL(pdfBlob);
+
+        // (1) Open the PDF in a new tab.
+        window.open(blobUrl, '_blank');
+
+        // (2) Trigger a download of the PDF.
+        const downloadLink = document.createElement('a');
+        downloadLink.href = blobUrl;
+        downloadLink.download = opt.filename; // This will download as "resume.pdf"
+        // Append the link to the body (required for Firefox)
+        document.body.appendChild(downloadLink);
+        downloadLink.click();
+        // Clean up: remove the link and revoke the blob URL after a short delay.
+        setTimeout(() => {
+          document.body.removeChild(downloadLink);
+          URL.revokeObjectURL(blobUrl);
+        }, 100);
+      })
+      .catch(err => {
+        console.error('Error generating PDF:', err);
+        alert('Error generating resume PDF.');
+      });
     })
     .catch(err => {
       console.error('Error loading resume.md:', err);
