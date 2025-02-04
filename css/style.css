@@ -117,3 +117,15 @@ footer p {
 .pub-authors, .pub-venue {
   color: #777;
 }
+/* Style adjustments for smaller screens */
+@media (max-width: 767px) {
+  .publication-list ol {
+    padding-left: 15px; /* Increase left padding for readability */
+  }
+  .pub-title {
+    font-size: 1rem; /* Slightly reduce the title size */
+  }
+  .pub-details {
+    font-size: 0.8rem; /* Reduce the details text size */
+  }
+}
