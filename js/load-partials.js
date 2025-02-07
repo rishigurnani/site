@@ -21,6 +21,14 @@ document.addEventListener("DOMContentLoaded", function() {
       if (typeof initCharts === "function") {
         initCharts();
       }
+      // Check if a hash is present in the URL and scroll to it.
+      if (window.location.hash) {
+        const hashElement = document.querySelector(window.location.hash);
+        if (hashElement) {
+          // Scroll into view with smooth behavior.
+          hashElement.scrollIntoView({ behavior: "smooth" });
+        }
+      }
     }
   }
 
@@ -34,4 +42,3 @@ document.addEventListener("DOMContentLoaded", function() {
       .catch(error => console.error("Error loading " + partial.url + ":", error));
   });
 });
-
