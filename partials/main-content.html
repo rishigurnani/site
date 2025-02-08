@@ -186,20 +186,37 @@
 <!-- Publications Section -->
 <section id="publications" class="py-5">
   <div class="container" data-aos="fade-up">
-    <h2 class="mb-4">Publications</h2>
-    
-    <!-- Grouped Citation Metrics & Graph -->
-    <div class="citation-metrics-container p-4 mb-4 border rounded">
-      <h4 class="mb-3">Citation Metrics</h4>
-      <p id="scholar-metrics">Loading citation data...</p>
-      <canvas id="citationsChart" style="max-width: 100%; height: 300px;"></canvas>
-    </div>
-    
-    <!-- Publication List: This element will be filled dynamically -->
-    <div class="publication-list">
-      <ol id="publication-list" class="mt-4" reversed="True">
-        <!-- Publications dynamically inserted here -->
-      </ol>
+    <div class="row">
+      <!-- Left Panel: Profile & Publications -->
+      <div class="col-md-8 left-panel">
+        <!-- Publications Table -->
+        <div class="publication-list">
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th>Title</th>
+                <th>Citations</th>
+                <th>Year</th>
+              </tr>
+            </thead>
+            <tbody id="publication-table-body">
+              <!-- Publication rows inserted dynamically -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <!-- Right Panel: Citation Metrics & Chart (hidden on mobile) -->
+      <div class="col-md-4 right-panel d-none d-md-block">
+        <div class="citation-metrics-container mb-4">
+          <h4 class="mb-3">Citation Metrics</h4>
+          <table class="table table-sm" id="citation-summary">
+            <!-- Citation summary rows inserted dynamically -->
+          </table>
+        </div>
+        <div class="chart-container">
+          <canvas id="citationsChart" style="max-width: 100%; height: 300px;"></canvas>
+        </div>
+      </div>
     </div>
   </div>
 </section>
