@@ -21,6 +21,20 @@ document.addEventListener("DOMContentLoaded", function() {
       if (typeof initCharts === "function") {
         initCharts();
       }
+      
+      // Initialize Slick slider if the slider element exists
+      if ($('.dissertation-slider').length > 0) {
+        $('.dissertation-slider').slick({
+          autoplay: true,
+          autoplaySpeed: 5000, // slide changes every 5 seconds
+          dots: true,
+          arrows: true,
+          adaptiveHeight: true,
+          fade: false,
+          pauseOnHover: true
+        });
+      }
+      
       // Check if a hash is present in the URL and scroll to it.
       if (window.location.hash) {
         const hashElement = document.querySelector(window.location.hash);
@@ -30,7 +44,7 @@ document.addEventListener("DOMContentLoaded", function() {
         }
       }
     }
-  }
+  }  
 
   partials.forEach(partial => {
     fetch(partial.url)
