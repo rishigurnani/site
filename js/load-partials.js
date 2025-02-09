@@ -7,6 +7,67 @@ const partials = [
   { selector: '#footer-placeholder', url: 'partials/footer.html' }
 ];
 
+function fetchGithubStats() {
+  // Fetch GitHub user data for rishigurnani
+  fetch('https://api.github.com/users/rishigurnani')
+    .then(response => response.json())
+    .then(userData => {
+      // Fetch rishigurnani's repositories
+      fetch('https://api.github.com/users/rishigurnani/repos?per_page=100')
+        .then(response => response.json())
+        .then(reposData => {
+          // Fetch the additional repo from Ramprasad-Group/polygnn
+          fetch('https://api.github.com/repos/Ramprasad-Group/polygnn')
+            .then(response => response.json())
+            .then(additionalRepo => {
+              // If the additional repo isn't already in reposData, add it
+              if (!reposData.some(repo => repo.full_name === additionalRepo.full_name)) {
+                reposData.push(additionalRepo);
+              }
+              // Sort all repositories by star count (highest first)
+              reposData.sort((a, b) => b.stargazers_count - a.stargazers_count);
+              const popularRepo = reposData[0];
+              
+              // Build the HTML with GitHub stats
+              const statsHtml = `
+                <p><strong>Total Public Repos:</strong> ${userData.public_repos}</p>
+                <p><strong>Followers:</strong> ${userData.followers}</p>
+                <p><strong>Most Popular Repo:</strong> 
+                  <a href="${popularRepo.html_url}" target="_blank" style="color:#ffd700;">
+                    ${popularRepo.name}
+                  </a> (${popularRepo.stargazers_count} ★)
+                </p>
+              `;
+              document.getElementById('github-stats').innerHTML = statsHtml;
+            })
+            .catch(err => {
+              console.error("Error fetching additional repo:", err);
+              // Even if the additional repo fails, proceed with rishigurnani's repos.
+              reposData.sort((a, b) => b.stargazers_count - a.stargazers_count);
+              const popularRepo = reposData[0];
+              const statsHtml = `
+                <p><strong>Total Public Repos:</strong> ${userData.public_repos}</p>
+                <p><strong>Followers:</strong> ${userData.followers}</p>
+                <p><strong>Most Popular Repo:</strong> 
+                  <a href="${popularRepo.html_url}" target="_blank" style="color:#ffd700;">
+                    ${popularRepo.name}
+                  </a> (${popularRepo.stargazers_count} ★)
+                </p>
+              `;
+              document.getElementById('github-stats').innerHTML = statsHtml;
+            });
+        })
+        .catch(err => {
+          document.getElementById('github-stats').innerHTML = '<p>Error loading repositories.</p>';
+          console.error(err);
+        });
+    })
+    .catch(err => {
+      document.getElementById('github-stats').innerHTML = '<p>Error loading GitHub data.</p>';
+      console.error(err);
+    });
+}
+
 document.addEventListener("DOMContentLoaded", function() {
   let loadedCount = 0;
   const totalPartials = partials.length;
@@ -14,7 +75,7 @@ document.addEventListener("DOMContentLoaded", function() {
   function checkAllLoaded() {
     loadedCount++;
     if (loadedCount === totalPartials) {
-      // Once all partials are loaded, initialize features:
+      // Initialize other features
       if (typeof initAnimation === "function") {
         initAnimation();
       }
@@ -35,16 +96,18 @@ document.addEventListener("DOMContentLoaded", function() {
         });
       }
       
-      // Check if a hash is present in the URL and scroll to it.
+      // Call the GitHub API function to update the open source slide
+      fetchGithubStats();
+      
+      // Scroll to URL hash if present
       if (window.location.hash) {
         const hashElement = document.querySelector(window.location.hash);
         if (hashElement) {
-          // Scroll into view with smooth behavior.
           hashElement.scrollIntoView({ behavior: "smooth" });
         }
       }
     }
-  }  
+  }   
 
   partials.forEach(partial => {
     fetch(partial.url)

@@ -222,3 +222,42 @@ footer p {
 .slick-prev:before, .slick-next:before {
   color: #3f51b5;
 }
+
+/* Open Source Slide Styles */
+.open-source-slide {
+  position: relative;  /* Establishes a containing block for absolutely positioned children */
+  overflow: hidden;
+}
+
+/* Video fills the container */
+.open-source-bg-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+}
+
+/* Overlay sits on top of the video without adding height */
+.open-source-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* Use flex to center the content */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+  color: #fff;
+  background: rgba(0, 0, 0, 0.35);  /* Optional: a semi-transparent overlay */
+}
+
+.open-source-overlay h3 {
+  font-size: 1.75rem;
+  margin-bottom: 1rem;
+}

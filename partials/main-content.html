@@ -77,78 +77,42 @@
                   allowfullscreen></iframe>
         </div>
       </div>
+
       <!-- Slide 2: Blog Hero Animation -->
       <div class="slide">
-        <a href="https://rishigurnani.github.io/blog/" target="_blank" class="blog-slide-link">
-          <div class="blog-hero-animation position-relative">
+        <div class="ratio ratio-16x9 blog-hero-animation">
+          <a href="https://rishigurnani.github.io/blog/" target="_blank" class="blog-slide-link">
             <video autoplay loop muted playsinline preload="auto" class="video-background" 
-                   src="https://videos.pexels.com/video-files/2759484/2759484-uhd_2560_1440_30fps.mp4">
+                  src="https://videos.pexels.com/video-files/2759484/2759484-uhd_2560_1440_30fps.mp4">
               <track kind="metadata" label="cuepoints" data-removeondestroy>
             </video>
             <div class="overlay text-white text-center">
               <h3 class="mb-0">Visit Tensor Blog</h3>
             </div>
-          </div>
-        </a>
+          </a>
+        </div>
       </div>
+
       <!-- Slide 3: Open Source Contributions -->
       <div class="slide">
-        <div class="open-source-slide">
-          <h3 class="text-center mb-4">Open Source Contributions</h3>
-          <!-- Prominent projects row -->
-          <div class="row">
-            <div class="col-md-6 mb-4">
-              <div class="card shadow-sm border-0">
-                <div class="card-body">
-                  <h3 class="card-title">Polymer Graph Neural Net (polyGNN)</h3>
-                  <p class="card-text">A cutting-edge project on graph neural networks for polymer property prediction.</p>
-                  <a href="https://github.com/Ramprasad-Group/polygnn" target="_blank" class="btn btn-primary btn-sm">Visit Repository</a>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-6 mb-4">
-              <div class="card shadow-sm border-0">
-                <div class="card-body">
-                  <h3 class="card-title">PolyVERSE Structures</h3>
-                  <p class="card-text">Explore a comprehensive database of hypothetical polymers and their synthesis.</p>
-                  <a href="https://github.com/Ramprasad-Group/polyverse-structures" target="_blank" class="btn btn-primary btn-sm">Visit Repository</a>
-                </div>
-              </div>
-            </div>
-          </div>
-          <!-- Other contributions row -->
-          <div class="row">
-            <div class="col-md-4 mb-4">
-              <div class="card shadow-sm">
-                <div class="card-body">
-                  <h4 class="card-title">Solvent polyGNN</h4>
-                  <p class="card-text">Extension for predicting polymer solubility.</p>
-                  <a href="https://github.com/Ramprasad-Group/sol_polygnn" target="_blank" class="btn btn-secondary btn-sm">Visit</a>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-4 mb-4">
-              <div class="card shadow-sm">
-                <div class="card-body">
-                  <h4 class="card-title">NetDebugger</h4>
-                  <p class="card-text">A tool for debugging neural networks.</p>
-                  <a href="https://github.com/rishigurnani/nndebugger" target="_blank" class="btn btn-secondary btn-sm">Visit</a>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-4 mb-4">
-              <div class="card shadow-sm">
-                <div class="card-body">
-                  <h4 class="card-title">Linker SMILES Extractor</h4>
-                  <p class="card-text">Extracts SMILES strings from MOF linker files.</p>
-                  <a href="https://github.com/Ramprasad-Group/LSE" target="_blank" class="btn btn-secondary btn-sm">Visit</a>
-                </div>
-              </div>
+        <div class="ratio ratio-16x9 open-source-slide">
+          <!-- Background Video -->
+          <video class="open-source-bg-video" 
+                autoplay loop muted playsinline preload="metadata" 
+                crossorigin=""
+                src="https://videos.pexels.com/video-files/3130284/3130284-uhd_2560_1440_30fps.mp4">
+            <track kind="metadata" label="cuepoints" data-removeondestroy>
+          </video>
+          <!-- Overlay Text -->
+          <div class="open-source-overlay">
+            <h3 class="mb-3">GitHub Contributions</h3>
+            <!-- This container will be updated by the GitHub API call -->
+            <div id="github-stats">
+              <p>Loading GitHub data…</p>
             </div>
           </div>
         </div>
-      </div>
-      <!-- End Slide 3 -->
+      </div>     
     </div>
   </div>
 </section>
