@@ -64,57 +64,99 @@
   </div>
 </section>
 
-<!-- Slider Section -->
-<section id="dissertation" class="py-5">
-  <div class="container" data-aos="fade-up">
-    <h2 class="mb-4">More from Rishi</h2>
-    <div class="dissertation-slider">
-      <!-- Slide 1: Dissertation Video -->
-      <div class="slide">
-        <div class="ratio ratio-16x9">
-          <iframe src="https://www.youtube.com/embed/wRN6wVhnn7E" 
-                  title="Dissertation Video" 
-                  allowfullscreen></iframe>
-        </div>
-      </div>
+<!-- Include Swiper CSS in your head (or partial) -->
+<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
 
-      <!-- Slide 2: Blog Hero Animation -->
-      <div class="slide">
-        <div class="ratio ratio-16x9 blog-hero-animation">
-          <a href="https://rishigurnani.github.io/blog/" target="_blank" class="blog-slide-link">
-            <video autoplay loop muted playsinline preload="auto" class="video-background" 
-                  src="https://videos.pexels.com/video-files/2759484/2759484-uhd_2560_1440_30fps.mp4">
-              <track kind="metadata" label="cuepoints" data-removeondestroy>
-            </video>
-            <div class="overlay text-white text-center">
-              <h3 class="mb-0">Visit Tensor Blog</h3>
+<!-- New Video Page Section (YouTube‑style) -->
+<section id="video-page" class="py-5">
+  <div class="container-fluid">
+    <div class="row">
+      <!-- Main Video Section (Left Side) -->
+      <div class="col-lg-8">
+        <div class="swiper main-video-swiper sexy-swiper">
+          <div class="swiper-wrapper">
+            <!-- Slide 1: Dissertation Video -->
+            <div class="swiper-slide">
+              <div class="video-player position-relative">
+                <iframe src="https://www.youtube.com/embed/wRN6wVhnn7E" 
+                        title="Dissertation Video" 
+                        allowfullscreen 
+                        class="w-100" 
+                        style="height: 360px;"></iframe>
+                <!-- Overlay content restored -->
+                <div class="video-overlay position-absolute bottom-0 start-0 p-3 overlay-content"
+                     style="background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);">
+                </div>
+              </div>
             </div>
-          </a>
-        </div>
-      </div>
-
-      <!-- Slide 3: Open Source Contributions -->
-      <div class="slide">
-        <div class="ratio ratio-16x9 open-source-slide">
-          <!-- Background Video -->
-          <video class="open-source-bg-video" 
-                autoplay loop muted playsinline preload="metadata" 
-                crossorigin=""
-                src="https://videos.pexels.com/video-files/3130284/3130284-uhd_2560_1440_30fps.mp4">
-            <track kind="metadata" label="cuepoints" data-removeondestroy>
-          </video>
-          <!-- Overlay Text -->
-          <div class="open-source-overlay">
-            <h3 class="mb-3">GitHub Contributions</h3>
-            <!-- This container will be updated by the GitHub API call -->
-            <div id="github-stats">
-              <p>Loading GitHub data…</p>
+            <!-- Slide 2: Blog Animation -->
+            <div class="swiper-slide">
+              <div class="video-player position-relative">
+                <a href="https://rishigurnani.github.io/blog/" target="_blank">
+                  <video autoplay loop muted playsinline class="w-100" style="height: 360px;"
+                    src="https://videos.pexels.com/video-files/2759484/2759484-uhd_2560_1440_30fps.mp4">
+                  </video>
+                  <!-- Overlay content restored -->
+                  <div class="video-overlay position-absolute bottom-0 start-0 p-3 overlay-content"
+                       style="background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);">
+                    <h4 class="mb-1">Visit Rishi's Blog</h4>
+                    <p class="mb-0">Fresh insights every week</p>
+                  </div>
+                </a>
+              </div>
+            </div>
+            <!-- Slide 3: GitHub Contributions -->
+            <div class="swiper-slide">
+              <div class="video-player position-relative">
+                <video autoplay loop muted playsinline class="w-100" style="height: 360px;"
+                  src="https://videos.pexels.com/video-files/3130284/3130284-uhd_2560_1440_30fps.mp4">
+                </video>
+                <!-- Overlay content restored -->
+                <div class="video-overlay position-absolute bottom-0 start-0 p-3 overlay-content"
+                     style="background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);">
+                  <h4 class="mb-1">GitHub Contributions</h4>
+                  <div id="github-stats"></div>
+                </div>
+              </div>
             </div>
           </div>
+          <!-- Swiper Pagination and Navigation -->
+          <div class="swiper-pagination"></div>
+          <div class="swiper-button-prev"><i class="fas fa-chevron-left"></i></div>
+          <div class="swiper-button-next"><i class="fas fa-chevron-right"></i></div>
         </div>
-      </div>     
-    </div>
-  </div>
+      </div>
+      
+      <!-- Sidebar (Right Side) -->
+      <div class="col-lg-4">
+        <div class="sidebar">
+          <ul class="list-unstyled">
+            <!-- Sidebar item for Slide 1 -->
+            <li class="sidebar-item d-flex align-items-center mb-3" data-slide="0" style="cursor: pointer;">
+              <div class="sidebar-icon me-2"><i class="fas fa-video fa-2x"></i></div>
+              <div class="sidebar-info">
+                <h5 class="mb-1" style="font-size: 1rem;">Watch Rishi's Defense</h5>
+              </div>
+            </li>
+            <!-- Sidebar item for Slide 2 -->
+            <li class="sidebar-item d-flex align-items-center mb-3" data-slide="1" style="cursor: pointer;">
+              <div class="sidebar-icon me-2"><i class="fas fa-newspaper fa-2x"></i></div>
+              <div class="sidebar-info">
+                <h5 class="mb-1" style="font-size: 1rem;">Visit Rishi's Blog</h5>
+              </div>
+            </li>
+            <!-- Sidebar item for Slide 3 -->
+            <li class="sidebar-item d-flex align-items-center mb-3" data-slide="2" style="cursor: pointer;">
+              <div class="sidebar-icon me-2"><i class="fab fa-github fa-2x"></i></div>
+              <div class="sidebar-info">
+                <h5 class="mb-1" style="font-size: 1rem;">See Rishi's Code</h5>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div><!-- .row -->
+  </div><!-- .container-fluid -->
 </section>
 
 <!-- Business Ventures Section -->
